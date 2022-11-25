@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list a room</title>
+    <style>
+        body {
+            margin-left: 150px;
+            margin-right: 240px;
+        }
+
+        * {
+            font-family: 'Times New Roman', Times, serif;
+
+        }
+
+        input {
+            background-color: rgb(242, 241, 239);
+            /* height: 40px; */
+            font-size: 20px;
+
+        }
+
+
+        /* p :hover {
+            color: orange;
+        } */
+
+        section p a {
+            color: aliceblue;
+            text-decoration: none;
+            font-size: 20px
+                /* font-size: 3px; */
+        }
+
+        section p a:hover {
+            color: orange;
+        }
+
+        /* a {
+            color: black;
+            text-decoration: none;
+        } */
+
+        section input:hover {
+            border: 3px solid orange;
+
+        }
+
+        section textarea:hover {
+            border: 2px solid orange;
+
+        }
+
+        section {
+            background-color: rgb(68, 65, 65);
+            border: 2px solid;
+            padding: 20px;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .button1 {
+            background-color: rgb(250, 183, 58);
+            border: 3px solid rgb(250, 165, 6);
+        }
+
+        .button1:hover {
+            background-color: rgb(250, 165, 6);
+        }
+
+        .button2 {
+            background-color: rgb(250, 183, 58);
+            border: 3px solid rgb(250, 165, 6);
+        }
+
+        .button2:hover {
+            background-color: rgb(250, 165, 6);
+        }
+
+        section table tr td {
+            color: aliceblue;
+        }
+
+        section table tr td:hover {
+            color: orange;
+        }
+
+        section p b {
+            color: aliceblue;
+
+        }
+
+        section p b:hover {
+            color: orange;
+
+        }
+
+        section label {
+            color: aliceblue
+        }
+
+        section label:hover {
+            color: orange;
+        }
+
+        header h1 {
+            color: orange;
+            text-align: center;
+            font-size: 50px;
+            font-style: italic;
+            font-weight: bolder;
+
+        }
+
+        .heading {
+            text-align: center;
+            padding: 2.5rem 0;
+        }
+
+        .heading span {
+            font-size: 3.5rem;
+            background: rgba(255, 165, 0, .2);
+            color: var(--orange);
+            border-radius: .5rem;
+            padding: .2rem 1rem;
+        }
+
+        .heading span.space {
+            background: none;
+        }
+
+        p b {
+            font-size: 20px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        button {
+            font-size: 20px;
+        }
+        .preview{
+            height: 400px;
+            width: 800px;
+            background: rgba(139, 139, 139, 0.219);
+            padding: auto;
+        }
+        #hello{
+            max-height: 371px;
+            max-width: 664px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="heading">
+            <span>L</span>
+            <span>I</span>
+            <span>S</span>
+            <span>T</span>
+            <span class="space"></span>
+            <span>A</span>
+            <span class="space"></span>
+            <span>R</span>
+            <span>O</span>
+            <span>O</span>
+            <span>M</span>
+        </h1>
+
+    </header>
+    <form method="POST" enctype="multipart/form-data">
+
+        <section>
+            <div class="previewimage">
+                <img src="" alt="" id="hello">
+            </div>
+
+             
+            <label>Name of the Host*</label> <br>
+            <input type="text" name="host_name" required placeholder="     Your Full Name" size="76px"> <br> <br>
+<!--
+             <p> <a href="abg">E-mail*</a></p>
+            <label>E-mail*</label> <br>
+            <input type="Email" name="host_email" required placeholder="       Your Email Address" size="76px"> <br>
+            <br> -->
+
+            <!-- <p> <a href="abg">Phone Number*</a> </p> -->
+            <label>Phone Number*</label> <br>
+            <input type="number" name="host_phone_number" required placeholder="       Your Phone Number" size="76px">
+            <br> <br>
+
+            <!-- <p><a href="abg">Alternate phone number*</a></p>  -->
+            <label>City*</label> <br>
+            <input type="text" name="city" required
+                placeholder="       Your city" size="76px"> <br> <br>
+            <input type="file" name="profile_pic" id="profile_pic" style="display: none;">
+            <button type="button" onclick="document.getElementById('profile_pic').click()">Click to upload image</button>
+<script>
+    const pre=document.querySelector(".previewimage");
+    const given_img=document.querySelector("#profile_pic");
+    const img =document.querySelector("#hello");
+    given_img.addEventListener("change", function(){
+        const file=this.files[0];
+        const reader= new FileReader();
+        reader.onload=function(){
+            const result=reader.result;
+            img.src=result;
+        };
+        reader.readAsDataURL(file);
+    });
+</script>
+        </section>
+        <br>
+        <br>
+        <section>
+            <!-- <p><a href="abg">Name of the Homestay*</a></p> -->
+            <label >Name of the Homestay*</label>  <br>
+            <input type="text" name="homestay_name" required placeholder="     Name of Homestay" size="76">     <br> <br>
+
+            <!-- <p><a href="abg">Full Address*</a></p> -->
+            <label> Full Address*</label>  <br>
+            <input type="text" name="homestay_address"  required  placeholder="     Postal Address" size="76">        <br> <br>
+
+            <!-- <p><a href="abg">Describe your Homestay*</a></p> -->
+            <label >Describe your Homestay*</label>  <br>
+            <textarea name="homestay_discription"  cols="112" rows="10"   required
+                placeholder="For example - Is it is Bunggalow, Apartment, Independent House, Farm House or a Palace? Is it located in forest, Riverside, beach side, in main town or residential complex? How many floors are there and how many rooms on each floor?"></textarea>         <br> <br>
+
+            <!-- <p><a href="abg">Number of your homestay</a></p> -->
+            <label >Number of your homestay*</label> <br>
+            <input type="number" name="homestay_number"  required placeholder="     Number of Guest Rooms" size="76px">        <br> <br>
+
+            <!-- <p><a href="abg">Total Capacity*</a></p> -->
+            <label >Total Capacity*</label>  <br>
+            <textarea name="homestay_capacity"  cols="112" rows="10" required
+                placeholder="How many people can you accomodate in your homestay? including all rooms with etra bads, Dormitory, tents etc."></textarea>   <br> <br>
+
+            <label for="rent">Rent per room</label>
+            <input type="number" name="rent" id="rent">
+
+        </section>
+        <br>
+        <br>
+
+<!-- 
+         <section>
+            <p><a href="abg">Tell us about yourself*</a></p>
+            <label>Tell us about yourself</label>  <br>
+            <textarea name="host_discription" cols="112" rows="10"  
+                placeholder="Like What do you do other than managing the homestay? What are your interest and qualities that can help the guests? Who are other members in your family?"></textarea>         <br> <br>
+
+            <p><a href="abg">Where do yo stay?*</a></p>
+            <label >Where do yo stay?*</label>  <br>
+            <input type="text" name="host_address"  required placeholder="     Your Permanent Address" size="76px">     <br> <br>
+
+            <p><a href="abg">What kind of food do you serve to the guest?*</a></p>
+            <label >What kind of food do you serve to the guest?*</label>   <br>
+            <textarea name="served_food"  cols="112" rows="10"   required
+                placeholder="Mention a few local dishes that guests can try at your homestay."></textarea>       <br> <br>
+        </section>  -->
+        <br>
+        <br>
+
+        <section>
+            <!-- <p><b>Facilities</b></p> -->
+            <label>Facilities</label>  <br> <br>
+            <input type="checkbox" id="f1" name="Parking" value="True">
+            <label for="f1">Parking</label><br>
+            <input type="checkbox" id="f2" name="Internet" value="True">
+            <label for="f2">Internet</label><br>
+            <input type="checkbox" id="f3" name="Running_Hot_water" value="True">
+            <label for="f3">Running Hot water</label><br>
+            <input type="checkbox" id="f4" name="Open_Seating_areas" value="True">
+            <label for="f4">Open Seating areas</label><br>
+            <input type="checkbox" id="f5" name="Air_Condition" value="True">
+            <label for="f5">Air Condition</label><br>
+            <input type="checkbox" id="f6" name="Television" value="True">
+            <label for="f6">Television</label><br>
+            <input type="checkbox" id="f7" name="Pet_Friendly" value="True">
+            <label for="f7">Pet Friendly</label><br>
+            <input type="checkbox" id="f8" name="Toiletries" value="True">
+            <label for="f8">Toiletries</label><br>
+            <input type="checkbox" id="f9" name="Smoking_Allowed" value="True">
+            <label for="f9">Smoking Allowed</label><br>
+            <input type="checkbox" id="f10" name="Library" value="True">
+            <label for="f10">Library</label><br>
+            <input type="checkbox" id="f11" name="Bonfire" value="True">
+            <label for="f11">Bonfire</label><br>
+            <input type="checkbox" id="f12" name="Barbecue" value="True">
+            <label for="f12">Barbecue</label><br>
+            <input type="checkbox" id="f13" name="Pick_and_dropServices" value="True">
+            <label for="f13">Pick and dropService(Paid)</label><br>
+            <label for="f14">Other</label><br><br>
+            <input type="text" id="f14" placeholder="  Other" size="76">
+
+        </section>
+        <br>
+        <br>
+
+
+
+        </section>
+        <br>
+        <br>
+
+        <!-- <section>
+            <p><a href="abg">Places to visit nearby(with distance)*</a></p>
+            <label >Places to visit nearby(with distance)</label>  <br>
+            <textarea name="place_to_visit" cols="112" rows="10"
+                placeholder="      Places to visit nearby (with distance)"></textarea>  <br> <br> 
+
+            <p><a href="abg">Message*</a></p>
+            <label >Message</label>  <br>
+            <textarea name="message"  cols="112" rows="10"
+                placeholder="      Type yor message here....."></textarea>   <br> <br>
+        </section> -->
+    
+        <!-- <br> -->
+        <button class="button button1">Previous</button>
+        <button class="button button2">Submit</button>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>host_profile</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+            :root {
+                --orange: #ffa500;
+            }
+
+            * {
+                font-family: 'Nunito', sans-serif;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                text-transform: capitalize;
+                outline: none;
+                border: none;
+                text-decoration: none;
+                transition: all .2s linear;
+            }
+
+            *::selection {
+                background: var(--orange);
+                color: #fff;
+            }
+
+            html {
+                font-size: 62.5%;
+                overflow-x: hidden;
+                scroll-padding-top: 6rem;
+                scroll-behavior: smooth;
+            }
+
+            section {
+                padding: 2rem 9%;
+            }
+
+            .host_profile .box-container {
+                /* display: flex;
+                flex-wrap: wrap; */
+                gap: 1.5rem;
+            }
+
+            .host_profile .box-container .box {
+                /* flex: 1 1 30rem; */
+                border-radius: .5rem;
+                padding: 5rem 10rem;
+                /* text-align: center; */
+                text-align: justify;
+                margin: 2rem;
+            }
+
+            /* ================================== */
+
+            .host_profile .box-container .image-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+                flex-direction: row;
+                justify-content: center;
+                border: 5px #ffa500;
+
+            }
+
+            .host_profile .box-container .image-container img {
+                height: 500px;
+                width: 1000px;
+                margin: auto;
+
+            }
+
+
+            /* ================================== */
+
+            .host_profile .box-container .box i {
+                padding: 1rem;
+                font-size: 5rem;
+                color: var(--orange);
+            }
+
+            .host_profile .box-container .box h3 {
+                font-size: 3rem;
+                color: #333;
+                text-align: center;
+            }
+
+            .host_profile .box-container .box span {
+                font-size: 2rem;
+                color: rgb(32, 28, 28);
+                padding: 1rem 0;
+                margin: auto;
+            }
+
+            .host_profile .box-container .box label {
+                font-size: 2rem;
+                color: rgb(32, 28, 28);
+                padding: 1rem 0;
+                margin: auto;
+            }
+
+            .host_profile .box-container .box {
+                border: 5px #333;
+            }
+
+            .host_profile .box-container .box:hover {
+                box-shadow: 0 3rem 3rem rgba(6, 6, 6, 0.1);
+            }
+
+            /* =============================== */
+            textarea {
+                border: 2px solid #0000005c;
+                width: 100%;
+            }
+
+            h1 {
+                color: #ffa500;
+                text-shadow: 2.5px 3px #f0b850;
+                font-size: 45px;
+                width: 400px;
+                margin: 3rem auto;
+
+            }
+
+            .btn {
+                display: inline-block;
+                margin: 2rem 30rem;
+                background: var(--orange);
+                color: #fff;
+                padding: .8rem 3rem;
+                border: .2rem solid var(--orange);
+                cursor: pointer;
+                font-size: 1.7rem;
+                margin: 3rem auto;
+            }
+
+            .btn:hover {
+                background: rgba(255, 119, 0, 0.124);
+                color: var(--orange);
+                color: orange;
+            }
+            .hello{
+                color:aliceblue;
+            }
+            .hello:hover{
+                color: orange;
+            }
+        </style>
+    </head>
+
+    <body>
+        <section class="host_profile" id="host_profile">
+            <div class="box-container">
+
+                <h1>{{host.homestay_name}}</h1>
+
+                <!-- <div class="box"> -->
+
+                <div class="image-container">
+                    <img src="{{host.pic}}" alt="homestay image">
+                    <!-- </div> -->
+
+                </div>
+
+                <div class="box">
+
+                    <span> <b> host name </b>: {{host.host_name}}</span> <br> <br>
+                    <span> <b> host E-mail address </b>: {{host.email}}</span> <br> <br>
+                    <span> <b> host contact number </b>: {{host.phone}}</span> <br> <br>
+                    <span> <b> full address </b>: {{host.address}}</span> <br> <br>
+                    <span> <b> city </b>: {{host.city}}</span> <br> <br>
+                    <span> <b> description of homestay </b>: {{host.description}}</span> <br> <br>
+                    <span> <b> number of rooms </b>: {{host.no_of_rooms}}</span> <br> <br>
+                    <span> <b> facilities </b>: <ul>
+                        {% for i in face  %}
+                            <li>{{i}}</li>
+                        {% endfor %}
+                    </ul></span> <br> <br>
+
+                </div>
+
+                
+                <form action="/{{host.id}}/review" method="POST">
+                        <div class="box">
+
+                        <label> <b> reviews :</b></label> <br>
+                        <textarea name="review" cols="112" rows="10" required
+                            placeholder="give your reviews here"></textarea>
+                            <button type="submit" class="btn">Add review</button>
+                        
+                            
+                        </div>
+                        
+                    </form>
+                    <button class="btn" type="button"><a href="/{{host.id}}/book" class="hello">book a room</a></button>
+
+
+            </div>
+
+
+        </section>
+
+    </body>
+
+    </html>

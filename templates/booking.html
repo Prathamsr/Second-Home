@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>booking</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+        :root {
+            --orange: #ffa500;
+        }
+
+        * {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-transform: capitalize;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            transition: all .2s linear;
+        }
+
+        *::selection {
+            background: var(--orange);
+            color: #fff;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-padding-top: 6rem;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            padding: 2rem 9%;
+        }
+
+        .heading {
+            text-align: center;
+            padding: 2.5rem 0;
+        }
+
+        .heading span {
+            font-size: 3.5rem;
+            background: rgba(255, 165, 0, .2);
+            color: var(--orange);
+            border-radius: .5rem;
+            padding: .2rem 1rem;
+        }
+
+        .heading span.space {
+            background: none;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 2rem 20rem;
+            background: var(--orange);
+            color: #fff;
+            padding: .8rem 4rem;
+            border: .2rem solid var(--orange);
+            cursor: pointer;
+            font-size: 1.7rem;
+            /* margin: 3rem auto; */
+            width: 25rem;
+        }
+
+        .btn:hover {
+            background: rgba(255, 165, 0, .2);
+            color: var(--orange);
+        }
+
+        .book .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            display: inline-block;
+            width: 90rem;
+            padding: 0 0 0 25rem;
+           
+        }
+
+        .book .row .image {
+            flex: 1 1 40rem;
+        }
+
+        .book .row .image img {
+            width: 100%;
+        }
+
+        .book .row form {
+            flex: 1 1 40rem;
+            padding: 2rem;
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+            border-radius: .5rem;
+        }
+
+        .book .row form .inputBox {
+            padding: .5rem 0;
+        }
+
+        .book .row form .inputBox input {
+            width: 100%;
+            padding: 1rem;
+            border: .1rem solid rgba(0, 0, 0, .1);
+            font-size: 1.7rem;
+            color: #333;
+            text-transform: none;
+        }
+
+        .book .row form .inputBox h3 {
+            font-size: 2rem;
+            padding: 1rem 0;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    
+
+            <!-- book section starts  -->
+
+            <section class="book" id="book">
+
+                <h1 class="heading">
+                    <span>b</span>
+                    <span>o</span>
+                    <span>o</span>
+                    <span>k</span>
+                    <span class="space"> &nbsp; </span>
+                    <span>n</span>
+                    <span>o</span>
+                    <span>w</span>
+                </h1>
+
+                <div class="row">
+
+                    <form method="POST">
+                        <div class="inputBox">
+                            <h3>how many rooms</h3>
+                            <input type="number" name="no_of_rooms" required placeholder="number of rooms">
+                        </div>
+                        <div class="inputBox">
+                            <h3>how many guests</h3>
+                            <input type="number" name="no_of_guest" required placeholder="number of guests">
+                        </div>
+                        <div class="inputBox">
+                            <h3>contact number</h3>
+                            <input type="number" name="contact_number" required placeholder="contact number of guest">
+                        </div>
+                        <div class="inputBox">
+                            <h3>arrivals</h3>
+                            <input type="date" name="arrivals" required>
+                        </div>
+                        <div class="inputBox">
+                            <h3>leaving</h3>
+                            <input type="date" name="leaving" required>
+                        </div>
+                        <input type="submit" class="btn" value="submit">
+                    </form>
+
+                </div>
+
+            </section>
+</body>
+
+</html>

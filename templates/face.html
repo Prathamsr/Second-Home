@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include('header.html')%}
+
+<body>
+    <!-- header section starts  -->
+    {% include ('navbar.html') %}
+    <!-- header section ends -->
+
+    <!-- login form container  -->
+
+    <div class="login-form-container">
+
+        <i class="fas fa-times" id="form-close"></i>
+
+        <form action="/login" method="POST">
+            <h3>login</h3>
+            <input type="email" class="box" placeholder="enter your email" name="email">
+            <input type="password" class="box" placeholder="enter your password" name="password">
+            <input type="submit" value="login now" class="btn">
+            <input type="checkbox" id="remember">
+            <label for="remember">remember me</label>
+            <p>forget password? <a href="#">click here</a></p>
+            <p>don't have and account? <a href='{{ url_for("register") }}'>register now</a></p>
+        </form>
+
+    </div>
+
+
+
+    <!-- home section starts  -->
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>where families bond</h3>
+            <p>Experience something new every moment</p>
+            <!-- <a href="#" class="btn">discover more {{ 1+1 }}</a> -->
+        </div>
+
+        <div class="controls">
+            <span class="vid-btn active" data-src="/static/images/vid-1.mp4"></span>
+            <span class="vid-btn" data-src="/static/images/vid-2.mp4"></span>
+            <span class="vid-btn" data-src="/static/images/vid-3.mp4"></span>
+            <span class="vid-btn" data-src="/static/images/vid-4.mp4"></span>
+            <span class="vid-btn" data-src="/static/images/vid-5.mp4"></span>
+        </div>
+
+        <div class="video-container">
+            <video src="/static/images/vid-1.mp4" id="video-slider" loop autoplay muted></video>
+        </div>
+
+    </section>
+
+
+    <!-- home section ends -->
+
+    <!-- book section starts  -->
+
+    <!-- <section class="book" id="book">
+
+        <h1 class="heading">
+            <span>b</span>
+            <span>o</span>
+            <span>o</span>
+            <span>k</span>
+            <span class="space"></span>
+            <span>n</span>
+            <span>o</span>
+            <span>w</span>
+        </h1>
+
+        <div class="row">
+
+            <div class="image">
+                <img src="/static/images/book-img.svg" alt="">
+            </div>
+
+            <form action="">
+                <div class="inputBox">
+                    <h3>where to</h3>
+                    <input type="text" placeholder="place name">
+                </div>
+                <div class="inputBox">
+                    <h3>how many</h3>
+                    <input type="number" placeholder="number of guests">
+                </div>
+                <div class="inputBox">
+                    <h3>arrivals</h3>
+                    <input type="date">
+                </div>
+                <div class="inputBox">
+                    <h3>leaving</h3>
+                    <input type="date">
+                </div>
+                <input type="submit" class="btn" value="book now">
+            </form>
+
+        </div>
+
+    </section> -->
+
+    <!-- book section ends -->
+
+    <!-- destination section starts  -->
+
+    <section class="destination" id="destination">
+
+        <h1 class="heading">
+            <span>d</span>
+            <span>e</span>
+            <span>s</span>
+            <span>t</span>
+            <span>i</span>
+            <span>n</span>
+            <span>a</span>
+            <span>t</span>
+            <span>i</span>
+            <span>o</span>
+            <span>n</span>
+        </h1>
+
+        <div class="box-container">
+            {% for i in post %}
+                
+            <div class="box">
+                <img src="{{i.pic}}" alt="">
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i> {{i.city}} </h3> <br>
+                    <h3>{{i.homestay_name}}</h3>
+                    <p>
+                        {{i.description}}
+                    </p>
+                    <div class="price"> Rs. {{i.rent}} </div>
+                    <a href="{{i.id}}/profile" class="btn">book now</a>
+                </div>
+            </div>
+            {% endfor %}            
+
+        </div>
+
+    </section>
+
+    <!-- destination section ends -->
+
+    <!-- facilities section starts  -->
+
+   
+
+    <!-- facilities section ends -->
+
+    <!-- gallery section starts  -->
+
+    <section class="gallery" id="gallery">
+
+        <h1 class="heading">
+            <span>g</span>
+            <span>a</span>
+            <span>l</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+            <span>y</span>
+        </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="/static/images/gg1.webp" alt="">
+                <div class="content">
+                    <h3>_RAJASTHAN_</h3>
+                    <p>rajasthan is more than just a desert , it is a tourism gem and jewel. </p>
+                    <a href="/rajasthan" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="/static/images/gg2.jpg" alt="">
+                <div class="content">
+                    <h3>_GUJARAT_</h3>
+                    <p>gujarat is all about trade with tradition, commerce with culture and enterprise with entertainment.</p>
+                    <a href="/gujarat" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="/static/images/gg3.jpg" alt="">
+                <div class="content">
+                    <h3>_KARNATAKA_</h3>
+                    <p>Karnataka is one state but contains many world's.</p>
+                    <a href="/karnataka" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="/static/images/gg4.webp" alt="">
+                <div class="content">
+                    <h3>_TAMIL NADU_</h3>
+                    <p>tamilians love to welcome their guest and feel proud to their own culture.</p>
+                    <a href="/tami_nadu" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="/static/images/gg5.jpg" alt="">
+                <div class="content">
+                    <h3>_MADHYA PRADESH_</h3>
+                    <p>explore the magnificent uniqueness of the heart of india "incredible madhya pradesh"</p>
+                    <a href="/madhya_pradesh" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="/static/images/gg6.jpg" alt="">
+                <div class="content">
+                    <h3>_ANDHRA PRADESH_</h3>
+                    <p>andhra pradesh is synonyms with hardwork and compassion.it is full of heritage culture.</p>
+                    <a href="/andhra_pradesh" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="/static/images/gg7.webp" alt="">
+                <div class="content">
+                    <h3>_WEST BENGAL</h3>
+                    <p>bengalis love to celebrate their language and culture.</p>
+                    <a href="/west_bengal" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="/static/images/gg8.png" alt="">
+                <div class="content">
+                    <h3>_BIHAR_</h3>
+                    <p>bihar is the state of humanity, love, hospitability with great culture and history.</p>
+                    <a href="/bihar" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="/static/images/gg9.jpg" alt="">
+                <div class="content">
+                    <h3>_UTTAR PRADESH_</h3>
+                    <p>uttan pradesh is a land of culture and religious diversities.</p>
+                    <a href="/uttan_pradesh" class="btn">see more</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- gallery section ends -->
+
+    <!-- review section starts  -->
+
+    <section class="review" id="review">
+
+        <h1 class="heading">
+            <span>r</span>
+            <span>e</span>
+            <span>v</span>
+            <span>i</span>
+            <span>e</span>
+            <span>w</span>
+        </h1>
+
+        <div class="swiper-container review-slider">
+
+            <div class="swiper-wrapper">
+                {% for i in ra %}
+                    
+                <div class="swiper-slide">
+                    <div class="box">
+                        <!-- <img src="/static/images/pic1.png" alt=""> -->
+                        <!-- <h3>john deo</h3> -->
+                        <h1>{{i}}</h1>
+                        <h3>{{i}}</h3>
+                       <br>
+                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci quisquam sunt nesciunt
+                           fugiat odit minus illum asperiores dolorum enim sint quod ipsam distinctio molestias
+                           consectetur ducimus beatae, reprehenderit exercitationem!</p> <br>
+                           <p>{{i}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                
+
+        </div>
+
+    </section>
+
+    <!-- review section ends -->
+
+    <!-- contact section starts  -->
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading">
+            <span>c</span>
+            <span>o</span>
+            <span>n</span>
+            <span>t</span>
+            <span>a</span>
+            <span>c</span>
+            <span>t</span>
+            <span class="space"></span>
+            <span>u</span>
+            <span>s</span>
+        </h1>
+
+        <div class="row">
+
+            <div class="image">
+                <img src="/static/images/contact-img.svg" alt="">
+            </div>
+
+            <form action="">
+                <div class="inputBox">
+                    <input type="text" placeholder="name">
+                    <input type="email" placeholder="email">
+                </div>
+                <div class="inputBox">
+                    <input type="number" placeholder="number">
+                    <input type="text" placeholder="subject">
+                </div>
+                <textarea placeholder="message" name="" id="" cols="30" rows="10"></textarea>
+                <input type="submit" class="btn" value="send message">
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- contact section ends -->
+
+    <!-- brand section  -->
+    <section class="brand-container">
+
+        <div class="swiper-container brand-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="/static/images/1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="/static/images/2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="/static/images/3.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="/static/images/4.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="/static/images/5.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="/static/images/6.jpg" alt=""></div>
+            </div>
+        </div>
+
+    </section>
+
+{% include ('footer.html') %}
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="/static/script.js"></script>
+{% if  login == 1%}
+<script>
+    var a=document.getElementById('login-btn');
+    a.click();
+</script>
+    
+{% endif %}
+</body>
+
+</html>
+
