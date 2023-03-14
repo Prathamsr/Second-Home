@@ -29,7 +29,7 @@ def logout():
 def index():
     rooms=Listroom.query.all()
     room=[]
-    for _ in range(6):
+    for _ in range(8):
         z=random.choice(rooms)
         room.append(z)
         rooms.remove(z)
@@ -293,6 +293,7 @@ if __name__ == '__main__':
     db.init_app(app)
     with app.app_context():
         db.create_all()
+    
     app.run(debug=True)
 
     
